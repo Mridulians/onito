@@ -17,7 +17,11 @@ import { setFormData2 } from '../Redux/Slice';
 
 // import InputAdornment from "@mui/material/InputAdornment";
 
-
+interface Country {
+  name: {
+    common: string;
+  };
+}
 
 const Step2Form = () => {
 
@@ -32,7 +36,7 @@ const Step2Form = () => {
     country: yup.string().required(),
   });
 
-  const [ListCountry, setcountry] = useState([]);
+  const [ListCountry, setcountry] = useState<Country[]>([]);
   const countryNames = ListCountry.map((item) => item.name.common).sort();
 
   useEffect(() => {
